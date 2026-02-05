@@ -1,0 +1,464 @@
+/* CITY DRIVE - Complete Styles | Developed by Jyotish */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: #fff;
+    touch-action: none;
+}
+
+.screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.screen.active { display: flex; }
+
+.overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+.overlay.active { display: flex; }
+
+#splash-screen {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0a192f 100%);
+    flex-direction: column;
+}
+
+.game-logo {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, #00ff88, #00d4ff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glow 2s ease-in-out infinite alternate;
+    text-align: center;
+}
+
+.logo-sub {
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    color: #666;
+    letter-spacing: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.loading-dots span {
+    font-size: 2rem;
+    color: #00ff88;
+    animation: blink 1.4s infinite;
+}
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 20px rgba(0,255,136,0.5)); }
+    to { filter: drop-shadow(0 0 40px rgba(0,212,255,0.8)); }
+}
+
+@keyframes blink {
+    0%, 80%, 100% { opacity: 0; }
+    40% { opacity: 1; }
+}
+
+#loading-screen {
+    background: linear-gradient(135deg, #0f0f23, #1a1a3e);
+    flex-direction: column;
+}
+
+.loading-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.loading-content h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: #00ff88;
+    margin-bottom: 1rem;
+}
+
+.loading-content p { color: #aaa; margin-bottom: 2rem; }
+
+.progress-container {
+    width: min(300px, 80vw);
+    height: 10px;
+    background: #222;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #00ff88, #00d4ff);
+    transition: width 0.3s;
+}
+
+.progress-text { margin-top: 1rem; color: #666; }
+
+.dev-credit {
+    position: absolute;
+    bottom: 2rem;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+#main-menu {
+    background: linear-gradient(135deg, #0f0f23, #1a1a3e, #0a192f);
+    flex-direction: column;
+}
+
+.menu-btn {
+    padding: 1rem 3rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #00ff88, #00d4ff);
+    border: none;
+    border-radius: 50px;
+    color: #000;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: all 0.3s;
+    box-shadow: 0 5px 30px rgba(0,255,136,0.4);
+}
+.menu-btn:active { transform: scale(0.95); }
+
+#garage-screen {
+    background: linear-gradient(180deg, #0f0f23, #050510);
+    flex-direction: column;
+}
+
+.garage-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.garage-header h2 {
+    color: #00ff88;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+.car-name {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-weight: bold;
+    color: #fff;
+}
+
+.back-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#garage-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+}
+
+.garage-controls {
+    position: absolute;
+    bottom: 100px;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.nav-btn {
+    width: 50px; height: 50px;
+    font-size: 1.5rem;
+    background: rgba(0,255,136,0.2);
+    border: 2px solid #00ff88;
+    color: #00ff88;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.nav-btn:active { background: #00ff88; color: #000; }
+
+.car-stats {
+    background: rgba(0,0,0,0.7);
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 0.4rem 0;
+    font-size: 0.85rem;
+}
+
+.stat span { width: 90px; color: #888; }
+
+.stat-bar {
+    width: 120px; height: 8px;
+    background: #333;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00ff88, #00d4ff);
+    transition: width 0.5s;
+}
+
+.select-btn {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #00ff88, #00d4ff);
+    border: none;
+    border-radius: 50px;
+    color: #000;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.rotate-hint {
+    position: absolute;
+    bottom: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #666;
+    font-size: 0.8rem;
+    z-index: 10;
+}
+
+#game-screen { background: #000; }
+
+#game-container {
+    width: 100%; height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+}
+
+.game-ui {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 50;
+}
+.game-ui > * { pointer-events: auto; }
+
+.minimap {
+    position: absolute;
+    top: 15px; left: 15px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    border: 3px solid rgba(0,255,136,0.6);
+    background: rgba(0,0,0,0.7);
+    overflow: hidden;
+}
+#minimap-canvas { width: 100%; height: 100%; }
+
+.pause-btn {
+    position: absolute;
+    top: 15px; right: 15px;
+    width: 45px; height: 45px;
+    font-size: 1.3rem;
+    background: rgba(0,0,0,0.5);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.steering-container {
+    position: absolute;
+    bottom: 15px; left: 15px;
+}
+
+.steering-wheel {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #333 0%, #1a1a1a 100%);
+    border: 4px solid #444;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 5px 15px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    touch-action: none;
+}
+
+.steering-center {
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00ff88, #00d4ff);
+    box-shadow: 0 0 15px rgba(0,255,136,0.6);
+}
+
+.gauges {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.speedometer { width: 110px; height: 70px; }
+.speed-text { font-size: 28px; font-weight: bold; fill: #00ff88; }
+.speed-unit { font-size: 10px; fill: #666; }
+
+.fuel-gauge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,0,0,0.6);
+    padding: 5px 12px;
+    border-radius: 15px;
+}
+
+.fuel-bar {
+    width: 70px; height: 8px;
+    background: #333;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.fuel-fill {
+    width: 75%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcf63);
+}
+
+.horn-btn {
+    position: absolute;
+    bottom: 65px;
+    right: 170px;
+    width: 55px; height: 55px;
+    font-size: 1.5rem;
+    background: rgba(255,200,0,0.2);
+    border: 3px solid #ffc800;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.horn-btn:active { background: #ffc800; }
+
+.pedals {
+    position: absolute;
+    bottom: 15px; right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pedal {
+    width: 75px; height: 65px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.gas {
+    background: linear-gradient(180deg, #00ff88, #00cc6a);
+    color: #000;
+    box-shadow: 0 4px 0 #009950;
+}
+.gas:active { transform: translateY(4px); box-shadow: none; }
+
+.brake {
+    background: linear-gradient(180deg, #ff6b6b, #ee5a5a);
+    color: #fff;
+    box-shadow: 0 4px 0 #cc4444;
+}
+.brake:active { transform: translateY(4px); box-shadow: none; }
+
+.camera-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.camera-hint.show { opacity: 1; animation: fadeOut 3s forwards; }
+
+@keyframes fadeOut {
+    0%, 70% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.pause-content {
+    background: rgba(15,15,30,0.98);
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid rgba(0,255,136,0.3);
+}
+
+.pause-content h2 { font-size: 2rem; color: #00ff88; margin-bottom: 1.5rem; }
+
+.pause-menu-btn {
+    display: block;
+    width: 180px;
+    padding: 0.9rem;
+    margin: 0.7rem auto;
+    font-size: 1rem;
+    font-weight: bold;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.pause-menu-btn:active { background: #00ff88; border-color: #00ff88; color: #000; }
+
+@media (max-height: 450px) {
+    .steering-wheel { width: 100px; height: 100px; }
+    .steering-center { width: 35px; height: 35px; }
+    .minimap { width: 80px; height: 80px; }
+    .pedal { width: 65px; height: 55px; font-size: 0.75rem; }
+    .horn-btn { width: 45px; height: 45px; font-size: 1.2rem; right: 150px; bottom: 55px; }
+    .speedometer { width: 90px; height: 55px; }
+    .gauges { transform: translateX(-40%); }
+}

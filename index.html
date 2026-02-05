@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>CITY DRIVE - Open World Racing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="splash-screen" class="screen active">
+        <h1 class="game-logo">CITY DRIVE</h1>
+        <p class="logo-sub">OPEN WORLD RACING</p>
+        <div class="loading-dots"><span>.</span><span>.</span><span>.</span></div>
+    </div>
+    
+    <div id="loading-screen" class="screen">
+        <div class="loading-content">
+            <h2>Welcome to City Drive!</h2>
+            <p>Choose your ride and explore the world.</p>
+            <div class="progress-container"><div class="progress-bar" id="progress-bar"></div></div>
+            <p class="progress-text" id="progress-text">Loading... 0%</p>
+        </div>
+        <p class="dev-credit">Developed by Jyotish</p>
+    </div>
+    
+    <div id="main-menu" class="screen">
+        <h1 class="game-logo">CITY DRIVE</h1>
+        <button class="menu-btn" id="play-btn">🎮 PLAY</button>
+        <p class="dev-credit">Developed by Jyotish</p>
+    </div>
+    
+    <div id="garage-screen" class="screen">
+        <div class="garage-header">
+            <button class="back-btn" id="garage-back">← Back</button>
+            <h2>SELECT YOUR RIDE</h2>
+            <span class="car-name" id="car-name">AVENTADOR</span>
+        </div>
+        <div id="garage-container"></div>
+        <p class="rotate-hint">👆 Drag to rotate car</p>
+        <div class="garage-controls">
+            <button class="nav-btn" id="prev-car">◀</button>
+            <div class="car-stats">
+                <div class="stat"><span>Speed</span><div class="stat-bar"><div class="stat-fill" id="stat-speed" style="width:90%"></div></div></div>
+                <div class="stat"><span>Handling</span><div class="stat-bar"><div class="stat-fill" id="stat-handling" style="width:80%"></div></div></div>
+                <div class="stat"><span>Power</span><div class="stat-bar"><div class="stat-fill" id="stat-power" style="width:85%"></div></div></div>
+            </div>
+            <button class="nav-btn" id="next-car">▶</button>
+        </div>
+        <button class="select-btn" id="select-car">SELECT & DRIVE</button>
+    </div>
+    
+    <div id="game-screen" class="screen">
+        <div id="game-container"></div>
+        <div class="game-ui">
+            <div class="minimap"><canvas id="minimap-canvas"></canvas></div>
+            <button class="pause-btn" id="pause-btn">⏸️</button>
+            <div class="steering-container">
+                <div class="steering-wheel" id="steering-wheel"><div class="steering-center"></div></div>
+            </div>
+            <div class="gauges">
+                <svg class="speedometer" viewBox="0 0 200 120">
+                    <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#333" stroke-width="10" stroke-linecap="round"/>
+                    <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#speedGrad)" stroke-width="10" stroke-linecap="round" id="speed-arc" stroke-dasharray="0 251"/>
+                    <defs><linearGradient id="speedGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00ff88"/><stop offset="100%" stop-color="#00d4ff"/></linearGradient></defs>
+                    <text x="100" y="85" text-anchor="middle" class="speed-text" id="speed-val">0</text>
+                    <text x="100" y="105" text-anchor="middle" class="speed-unit">KM/H</text>
+                </svg>
+                <div class="fuel-gauge"><span>⛽</span><div class="fuel-bar"><div class="fuel-fill" id="fuel-fill"></div></div></div>
+            </div>
+            <button class="horn-btn" id="horn-btn">📯</button>
+            <div class="pedals">
+                <button class="pedal gas" id="gas-btn">GAS</button>
+                <button class="pedal brake" id="brake-btn">BRAKE</button>
+            </div>
+            <div class="camera-hint" id="camera-hint">👆 Swipe screen to rotate camera</div>
+        </div>
+    </div>
+    
+    <div id="pause-menu" class="overlay">
+        <div class="pause-content">
+            <h2>⏸️ PAUSED</h2>
+            <button class="pause-menu-btn" id="resume-btn">▶️ Resume</button>
+            <button class="pause-menu-btn" id="reset-btn">♻️ Reset Car</button>
+            <button class="pause-menu-btn" id="change-car-btn">🚗 Change Car</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
